@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미래를 바꾸는 녹색 직업 가이드</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#E9D8A6]">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-black text-[#005F73] mb-4">미래를 위한 선택, 환경 분야 직업 탐색</h1>
+            <p class="text-lg md:text-xl text-[#0A9396] font-semibold">기후 위기 시대, 지구를 구하고 나의 꿈도 찾는 방법!</p>
+        </header>
+
+        <section id="crisis" class="mb-16">
+            <div class="bg-white rounded-lg shadow-xl p-6 md:p-8 text-center">
+                <h2 class="text-3xl font-bold text-[#9B2226] mb-4">🚨 기후 위기, 더 이상 먼 미래의 이야기가 아닙니다</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                    우리가 사는 한국의 평균 기온은 지난 100여 년간 가파르게 상승했습니다. 이는 단순한 날씨 변화를 넘어 우리의 삶과 지구 생태계 전체를 위협하는 심각한 신호입니다.
+                </p>
+                <div class="bg-[#AE2012] text-white rounded-lg p-8 inline-block">
+                    <p class="text-2xl font-semibold">지난 100년간 한반도 평균 기온</p>
+                    <p class="text-7xl font-black">1.8℃ 상승</p>
+                    <p class="text-sm mt-2">(전 지구 평균의 2배 이상)</p>
+                </div>
+                <div class="chart-container mx-auto max-w-lg mt-8">
+                    <canvas id="koreaTempChart"></canvas>
+                </div>
+                 <p class="mt-6 text-gray-600">이러한 변화는 폭염, 홍수, 생태계 파괴 등 다양한 문제로 이어져 우리의 건강과 안전, 경제까지 위협하고 있습니다.</p>
+            </div>
+        </section>
+
+        <section id="carbon-neutral" class="mb-16">
+            <div class="bg-white rounded-lg shadow-xl p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-[#005F73] text-center mb-6">🌏 우리의 목표: 2050 탄소 중립</h2>
+                <p class="text-lg text-gray-700 mb-8 text-center max-w-3xl mx-auto">
+                    탄소 중립(Net-Zero)은 배출하는 탄소만큼 흡수하여 실질적인 배출량을 '0'으로 만드는 것입니다. 이는 지구를 살리기 위한 전 세계의 약속이자, 새로운 산업과 일자리를 만드는 거대한 기회입니다.
+                </p>
+                <div class="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
+                    <div class="text-center p-4">
+                        <p class="text-5xl mb-2">💨</p>
+                        <p class="font-bold text-xl text-[#BB3E03]">온실가스 배출</p>
+                        <p class="text-gray-600">인간 활동으로 발생</p>
+                    </div>
+                    <div class="text-5xl font-bold text-[#0A9396]">&rarr;</div>
+                    <div class="text-center p-4">
+                        <p class="text-5xl mb-2">♻️</p>
+                        <p class="font-bold text-xl text-[#0A9396]">최대한 줄이고, <br>남은 건 흡수</p>
+                        <p class="text-gray-600">재생에너지, 숲, 기술 활용</p>
+                    </div>
+                    <div class="text-5xl font-bold text-[#94D2BD]">&rarr;</div>
+                     <div class="text-center p-4">
+                        <p class="text-5xl mb-2">🌍</p>
+                        <p class="font-bold text-xl text-[#005F73]">순배출량 '0' 달성</p>
+                        <p class="text-gray-600">지속가능한 미래</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="carbon-calculator" class="mb-16">
+            <div class="bg-white rounded-lg shadow-xl p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-[#CA6702] text-center mb-6">👣 나의 탄소 발자국 계산해보기</h2>
+                <p class="text-lg text-gray-700 mb-8 text-center max-w-3xl mx-auto">
+                    우리의 일상생활이 얼마나 많은 탄소를 배출하는지 알아볼까요? 아래 질문에 답하고 나의 탄소 발자국을 측정해 보세요!
+                </p>
+
+                <div class="space-y-6 max-w-lg mx-auto">
+                    <div>
+                        <label for="busStops" class="block text-gray-700 text-sm font-bold mb-2">버스 탑승 (하루 평균 몇 정거장):</label>
+                        <input type="number" id="busStops" value="0" min="0" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-100">
+                    </div>
+                    <div>
+                        <label for="toothbrushCup" class="block text-gray-700 text-sm font-bold mb-2">양치컵 사용 (하루 몇 번 사용):</label>
+                        <input type="number" id="toothbrushCup" value="3" min="0" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-100">
+                    </div>
+                    <div>
+                        <label for="leftoverLunch" class="block text-gray-700 text-sm font-bold mb-2">급식을 남기나요?</label>
+                        <select id="leftoverLunch" class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-100">
+                            <option value="no">아니요, 거의 다 먹어요</option>
+                            <option value="yes">네, 가끔 남겨요</option>
+                            <option value="often">자주 남겨요</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="walkingDistance" class="block text-gray-700 text-sm font-bold mb-2">하루에 몇 km 정도를 걷나요?</label>
+                        <input type="number" id="walkingDistance" value="2" min="0" step="0.1" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-100">
+                    </div>
+                    <div>
+                        <label for="disposableItems" class="block text-gray-700 text-sm font-bold mb-2">일회용품을 하루에 몇 개 사용하나요? (예: 종이컵, 빨대 등)</label>
+                        <input type="number" id="disposableItems" value="1" min="0" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-100">
+                    </div>
+                    <div>
+                        <label for="screenTime" class="block text-gray-700 text-sm font-bold mb-2">스마트폰/컴퓨터 사용 시간 (하루 평균 몇 시간):</label>
+                        <input type="number" id="screenTime" value="3" min="0" step="0.5" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-100">
+                    </div>
+                    <div>
+                        <label for="showerTime" class="block text-gray-700 text-sm font-bold mb-2">하루 샤워 시간 (분):</label>
+                        <input type="number" id="showerTime" value="10" min="0" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-100">
+                    </div>
+                    <div>
+                        <label for="meatConsumptionCategory" class="block text-gray-700 text-sm font-bold mb-2">고기류 섭취 빈도:</label>
+                        <select id="meatConsumptionCategory" class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-100">
+                            <option value="very_often">거의 매일</option>
+                            <option value="often">주 3-4회</option>
+                            <option value="sometimes">주 1-2회</option>
+                            <option value="rarely">채식 위주</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="vegetableConsumptionCategory" class="block text-gray-700 text-sm font-bold mb-2">채소류 섭취 빈도:</label>
+                        <select id="vegetableConsumptionCategory" class="shadow border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-100">
+                            <option value="daily">매일</option>
+                            <option value="often">주 3-4회</option>
+                            <option value="sometimes">가끔</option>
+                            <option value="rarely">거의 안 먹음</option>
+                        </select>
+                    </div>
+                    <button id="calculateCarbon" class="bg-[#0A9396] hover:bg-[#005F73] text-white font-bold py-3 px-6 rounded-lg w-full transition duration-300 transform hover:scale-105">
+                        나의 탄소 발자국 계산하기
+                    </button>
+                </div>
+                
+                <div id="carbonResult" class="mt-8 p-6 bg-[#94D2BD] text-white rounded-lg text-center text-xl font-bold hidden">
+                    <p class="text-3xl mb-2">💡 나의 하루 예상 탄소 발자국은...</p>
+                    <p><span id="carbonValue" class="text-5xl font-black">0</span> kg CO2e 입니다!</p>
+                    <p class="text-sm mt-4">이 수치는 대략적인 값이며, 실제와는 다를 수 있습니다.</p>
+                    <div id="carbonGuidance" class="mt-4 text-white text-lg font-semibold">
+                        <!-- Carbon guidance will be inserted here -->
+                    </div>
+
+                    <div class="mt-8 bg-white text-gray-800 rounded-lg p-6 text-left">
+                        <h3 class="text-2xl font-bold text-[#005F73] mb-4">⭐ 탄소 배출량에 따른 안내 예시</h3>
+                        <ul class="list-disc list-inside space-y-2 text-lg">
+                            <li><span class="font-bold">~1.0kg:</span> 아주 훌륭해요! 계속 잘 실천하고 있어요! 👍</li>
+                            <li><span class="font-bold">1.0~2.5kg:</span> 좋아요! 하지만 더 줄일 수 있어요. 일회용품 줄이기, 걷기 생활화를 시도해 보세요! 🚶‍♀️🛍️</li>
+                            <li><span class="font-bold">2.5~4.0kg:</span> 개선이 필요해요. 고기 줄이기, 샤워 시간을 더 짧게 해 보세요! 🍖💧</li>
+                            <li><span class="font-bold">4.0kg 이상:</span> 환경을 위해 전반적인 습관 개선이 시급합니다! 🌍💡</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-8 bg-white text-gray-800 rounded-lg p-6 text-left">
+                        <h3 class="text-2xl font-bold text-[#005F73] mb-4">📝 계산 결과 활용 방법</h3>
+                        <ul class="list-disc list-inside space-y-2 text-lg">
+                            <li>오늘 내가 얼마나 많은 탄소를 배출했는지 확인하고, 일상에서 줄일 수 있는 부분을 찾는 데 활용해요.</li>
+                            <li>반 친구들과 탄소 배출량 비교해보기</li>
+                            <li>가장 탄소가 많이 나온 항목 분석</li>
+                            <li>탄소 줄이기 도전 미션 세우기</li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-8 bg-white text-gray-800 rounded-lg p-6 text-left">
+                        <h3 class="text-2xl font-bold text-[#005F73] mb-4">✍️ 나의 다짐과 실천</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <label for="myPledge" class="block text-gray-700 text-sm font-bold mb-2">오늘 나의 탄소 줄이기 다짐을 적어보세요:</label>
+                                <textarea id="myPledge" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-100" rows="3" placeholder="예: 내일은 고기 대신 채소 반찬을 먹을래요!"></textarea>
+                            </div>
+                            <div>
+                                <label for="myPractice" class="block text-gray-700 text-sm font-bold mb-2">오늘 내가 실천한 친환경 행동을 적어보세요:</label>
+                                <textarea id="myPractice" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-gray-100" rows="3" placeholder="예: 양치할 때 컵을 사용했어요. 전자기기 사용을 1시간 줄였어요."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="jobs-overview" class="mb-16">
+            <h2 class="text-3xl font-bold text-[#005F73] text-center mb-8">🧑‍🔬 '그린 잡(Green Job)'의 세계로!</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-xl p-6">
+                    <h3 class="text-2xl font-bold text-center text-[#EE9B00] mb-4">급성장하는 재생에너지 일자리</h3>
+                     <p class="text-gray-700 mb-4 text-center">
+                        전 세계적으로 환경을 지키는 '그린 잡'이 빠르게 늘고 있습니다. 특히 태양광, 풍력 등 재생에너지 분야의 성장이 눈에 띕니다.
+                    </p>
+                    <div class="chart-container mx-auto max-w-md">
+                        <canvas id="renewableJobsChart"></canvas>
+                    </div>
+                    <p class="text-center text-gray-600 mt-4">2022년 전 세계 재생에너지 분야에서는 약 1,370만 개의 일자리가 창출되었습니다.</p>
+                </div>
+                 <div class="bg-white rounded-lg shadow-xl p-6">
+                    <h3 class="text-2xl font-bold text-center text-[#CA6702] mb-4">미래 유망 직업 성장률</h3>
+                    <p class="text-gray-700 mb-4 text-center">
+                        환경 기술 관련 직업들은 미래 고용 시장에서 가장 빠르게 성장할 것으로 예측되는 분야 중 하나입니다.
+                    </p>
+                    <div class="chart-container mx-auto max-w-md">
+                        <canvas id="jobGrowthChart"></canvas>
+                    </div>
+                    <p class="text-center text-gray-600 mt-4">풍력 터빈 기술자의 경우, 향후 10년간 일자리가 45%나 증가할 전망입니다.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="job-details" class="mb-16">
+             <h2 class="text-3xl font-bold text-center text-[#005F73] mb-8">어떤 직업들이 있을까?</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <div class="bg-white rounded-lg shadow-xl p-6 flex flex-col items-center text-center">
+                    <div class="text-6xl mb-4">☀️</div>
+                    <h3 class="text-xl font-bold text-[#EE9B00] mb-2">재생에너지 전문가</h3>
+                    <p class="text-gray-600">태양, 바람, 물, 땅의 힘으로 깨끗한 에너지를 만듭니다. (태양광/풍력 기술자, 수소연료전지 전문가)</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-xl p-6 flex flex-col items-center text-center">
+                    <div class="text-6xl mb-4">🌳</div>
+                    <h3 class="text-xl font-bold text-[#94D2BD] mb-2">환경 보호 및 관리 전문가</h3>
+                    <p class="text-gray-600">오염된 자연을 되살리고, 건강한 생태계를 지킵니다. (환경영향평가사, 폐기물처리기술자, 보존 과학자)</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-xl p-6 flex flex-col items-center text-center">
+                    <div class="text-6xl mb-4">⚖️</div>
+                    <h3 class="text-xl font-bold text-[#0A9396] mb-2">환경 정책 및 교육 전문가</h3>
+                    <p class="text-gray-600">환경 보호를 위한 법과 제도를 만들고, 중요성을 알립니다. (환경전문변호사, 기후변화 전문가, 환경 교사)</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-xl p-6 flex flex-col items-center text-center">
+                    <div class="text-6xl mb-4">🏙️</div>
+                    <h3 class="text-xl font-bold text-[#BB3E03] mb-2">지속가능 혁신 전문가</h3>
+                    <p class="text-gray-600">친환경 기술과 디자인으로 지속가능한 도시와 제품을 만듭니다. (에코디자이너, 그린 빌딩 설계사)</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="trends" class="mb-16">
+            <div class="bg-white rounded-lg shadow-xl p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-center text-[#005F73] mb-6">직업 시장의 거대한 변화</h2>
+                <p class="text-lg text-gray-700 mb-8 text-center max-w-3xl mx-auto">
+                    기후 변화와 기술 발전은 직업 시장을 바꾸고 있습니다. 기존 산업은 변화에 적응해야 하고, 인공지능(AI), 데이터 분석 기술을 활용하는 새로운 녹색 직업이 떠오르고 있습니다.
+                </p>
+                <div class="chart-container mx-auto max-w-2xl">
+                    <canvas id="jobTrendChart"></canvas>
+                </div>
+                <p class="text-center text-gray-600 mt-4">녹색 기술과 산업에 대한 투자가 늘면서 '그린 잡'은 계속해서 증가할 것입니다.</p>
+            </div>
+        </section>
+
+        <section id="career-selector" class="mb-16">
+            <div class="bg-white rounded-lg shadow-xl p-6 md:p-8">
+                <h2 class="text-3xl font-bold text-[#EE9B00] text-center mb-6">🔍 나에게 맞는 환경 직업은?</h2>
+                <p class="text-lg text-gray-700 mb-8 text-center max-w-3xl mx-auto">
+                    여러분의 관심사와 재능을 바탕으로 환경 분야의 어떤 직업이 잘 맞을지 알아볼까요? 해당하는 항목을 모두 선택해 보세요!
+                </p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                    <div class="p-4 bg-gray-50 rounded-lg shadow-inner">
+                        <h3 class="text-xl font-bold text-[#BB3E03] mb-4">활동/관심사 (복수 선택 가능)</h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center text-gray-700">
+                                <input type="checkbox" name="interest" value="과학적탐구" class="form-checkbox h-5 w-5 text-[#0A9396] rounded mr-2"> 과학적 탐구, 연구 (탐구형 R)
+                            </label>
+                            <label class="flex items-center text-gray-700">
+                                <input type="checkbox" name="interest" value="문제해결_기술" class="form-checkbox h-5 w-5 text-[#0A9396] rounded mr-2"> 기술 활용 문제 해결, 발명 (현실형 C / 탐구형 R)
+                            </label>
+                            <label class="flex items-center text-gray-700">
+                                <input type="checkbox" name="interest" value="자연_야외활동" class="form-checkbox h-5 w-5 text-[#0A9396] rounded mr-2"> 자연 보호, 야외 활동 (현실형 R / 탐구형 A)
+                            </label>
+                            <label class="flex items-center text-gray-700">
+                                <input type="checkbox" name="interest" value="사람소통_교육" class="form-checkbox h-5 w-5 text-[#0A9396] rounded mr-2"> 사람들과 소통, 교육, 설득 (사회형 S)
+                            </label>
+                            <label class="flex items-center text-gray-700">
+                                <input type="checkbox" name="interest" value="정책_법률" class="form-checkbox h-5 w-5 text-[#0A9396] rounded mr-2"> 정책 수립, 법률 분석 (진취형 E / 관습형 C)
+                            </label>
+                            <label class="flex items-center text-gray-700">
+                                <input type="checkbox" name="interest" value="디자인_창의" class="form-checkbox h-5 w-5 text-[#0A9396] rounded mr-2"> 예술, 디자인, 창의적 작업 (예술형 A)
+                            </label>
+                            <label class="flex items-center text-gray-700">
+                                <input type="checkbox" name="interest" value="체계적조직" class="form-checkbox h-5 w-5 text-[#0A9396] rounded mr-2"> 자료 정리, 계획 수립, 체계적 조직 (관습형 C / 진취형 E)
+                            </label>
+                            <label class="flex items-center text-gray-700">
+                                <input type="checkbox" name="interest" value="사회변화주도" class="form-checkbox h-5 w-5 text-[#0A9396] rounded mr-2"> 사회 변화 주도, 리더십 (진취형 E)
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="p-4 bg-gray-50 rounded-lg shadow-inner">
+                        <h3 class="text-xl font-bold text-[#BB3E03] mb-4">좋아하는 과목 (복수 선택 가능)</h3>
+                        <div class="space-y-3">
+                            <label class="flex items-center text-gray-700">
+                                <input type="checkbox" name="subject" value="과학" class="form-checkbox h-5 w-5 text-[#0A9396] rounded mr-2"> 과학 (생물, 화학, 물리, 지구과학)
+                            </label>
+                            <label class="flex items-center text-gray-700">
+                                <input type="checkbox" name="subject" value="수학" class="form-checkbox h-5 w-5 text-[#0A9396] rounded mr-2"> 수학
+                            </label>
+                            <label class="flex items-center text-gray-700">
+                                <input type="checkbox" name="subject" value="기술_정보" class="form-checkbox h-5 w-5 text-[#0A9396] rounded mr-2"> 기술, 정보 (코딩, 공작)
+                            </label>
+                            <label class="flex items-center text-gray-700">
+                                <input type="checkbox" name="subject" value="사회_역사" class="form-checkbox h-5 w-5 text-[#0A9396] rounded mr-2"> 사회, 역사, 지리
+                            </label>
+                            <label class="flex items-center text-gray-700">
+                                <input type="checkbox" name="subject" value="미술_음악" class="form-checkbox h-5 w-5 text-[#0A9396] rounded mr-2"> 미술, 음악, 디자인
+                            </label>
+                            <label class="flex items-center text-gray-700">
+                                <input type="checkbox" name="subject" value="국어_언어" class="form-checkbox h-5 w-5 text-[#0A9396] rounded mr-2"> 국어, 외국어
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="findMyJob" class="bg-[#CA6702] hover:bg-[#BB3E03] text-white font-bold py-3 px-6 rounded-lg w-full max-w-lg mx-auto block mt-8 transition duration-300 transform hover:scale-105">
+                    나에게 맞는 직업 찾기
+                </button>
+
+                <div id="careerResult" class="mt-8 p-6 bg-[#E9D8A6] rounded-lg text-gray-800 hidden">
+                    <p class="text-2xl font-bold text-[#005F73] mb-4 text-center">🌟 여러분에게 추천하는 환경 직업!</p>
+                    <div id="recommendedCareers" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="preparation">
+            <div class="bg-[#005F73] text-white rounded-lg shadow-xl p-6 md:p-10">
+                <h2 class="text-3xl font-bold text-center mb-8">미래 환경 전문가, 지금부터 준비해요!</h2>
+                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div>
+                        <div class="text-5xl mb-3">🏡</div>
+                        <h3 class="text-xl font-bold text-[#94D2BD] mb-2">생활 속 실천</h3>
+                        <ul class="list-none space-y-1 text-left inline-block">
+                            <li>✔️ 불 끄기, 플러그 뽑기</li>
+                            <li>✔️ 텀블러, 장바구니 사용</li>
+                            <li>✔️ 올바른 분리배출</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="text-5xl mb-3">📚</div>
+                        <h3 class="text-xl font-bold text-[#E9D8A6] mb-2">학교 공부 열심히</h3>
+                        <p>과학, 수학, 기술, 사회 등 다양한 과목은 환경 문제를 이해하고 해결하는 기초가 됩니다.</p>
+                    </div>
+                    <div>
+                        <div class="text-5xl mb-3">💡</div>
+                        <h3 class="text-xl font-bold text-[#EE9B00] mb-2">다양한 경험 쌓기</h3>
+                        <p>환경 동아리 활동, 관련 책 읽기, 캠페인 참여 등을 통해 관심과 지식을 넓혀보세요.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <script>
+        function wrapLabels(label, maxWidth) {
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + ' ' + word).length > maxWidth) {
+                    lines.push(currentLine);
+                    currentLine = word;
+                } else {
+                    currentLine += (currentLine === '' ? '' : ' ') + word;
+                }
+            });
+            lines.push(currentLine);
+            return lines;
+        }
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            }
+            return label;
+        };
+
+        const vibrantPalette = {
+            blue1: '#005F73',
+            blue2: '#0A9396',
+            green: '#94D2BD',
+            yellow: '#E9D8A6',
+            orange1: '#EE9B00',
+            orange2: '#CA6702',
+            red1: '#BB3E03',
+            red2: '#AE2012',
+            red3: '#9B2226'
+        };
+
+        // New Chart for Korea Temperature Trend
+        const koreaTempCtx = document.getElementById('koreaTempChart').getContext('2d');
+        new Chart(koreaTempCtx, {
+            type: 'line',
+            data: {
+                labels: ['1920', '1940', '1960', '1980', '2000', '2020'],
+                datasets: [{
+                    label: '한반도 평균 기온 (℃)',
+                    data: [13.0, 13.3, 13.6, 13.9, 14.3, 14.8],
+                    borderColor: vibrantPalette.red3,
+                    backgroundColor: 'rgba(155, 34, 38, 0.2)',
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: vibrantPalette.red3,
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: '연도',
+                            color: '#333'
+                        },
+                        ticks: {
+                            color: '#333'
+                        }
+                    },
+                    y: {
+                        beginAtZero: false,
+                        title: {
+                            display: true,
+                            text: '평균 기온 (℃)',
+                            color: '#333'
+                        },
+                        ticks: {
+                            color: '#333'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        position: 'top',
+                        labels: {
+                            color: '#333'
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                           title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+
+        const renewableJobsCtx = document.getElementById('renewableJobsChart').getContext('2d');
+        new Chart(renewableJobsCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['태양광 발전', '바이오 연료', '수력 발전', '풍력 발전', '기타'],
+                datasets: [{
+                    label: '일자리 수 (백만)',
+                    data: [4.9, 2.5, 2.4, 1.4, 2.5],
+                    backgroundColor: [vibrantPalette.orange1, vibrantPalette.green, vibrantPalette.blue2, vibrantPalette.blue1, vibrantPalette.yellow],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: '#333',
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    title: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                           title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        const jobGrowthCtx = document.getElementById('jobGrowthChart').getContext('2d');
+        new Chart(jobGrowthCtx, {
+            type: 'bar',
+            data: {
+                labels: [wrapLabels('풍력 터빈 기술자', 16), wrapLabels('태양광 발전 설치 기술자', 16), wrapLabels('환경 과학자 및 전문가', 16)],
+                datasets: [{
+                    label: '10년 후 예상 성장률 (%)',
+                    data: [45, 22, 6],
+                    backgroundColor: [vibrantPalette.red1, vibrantPalette.orange2, vibrantPalette.green],
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#e0e0e0'
+                        },
+                        ticks: {
+                            color: '#333'
+                        }
+                    },
+                    y: {
+                         grid: {
+                            display: false
+                        },
+                        ticks: {
+                            color: '#333'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            title: tooltipTitleCallback
+                        }
+                    }
+                }
+            }
+        });
+
+        const jobTrendCtx = document.getElementById('jobTrendChart').getContext('2d');
+        new Chart(jobTrendCtx, {
+            type: 'line',
+            data: {
+                labels: ['2020', '2025', '2030', '2035', '2040'],
+                datasets: [{
+                    label: '새로운 녹색 일자리',
+                    data: [100, 150, 220, 310, 450],
+                    borderColor: vibrantPalette.blue2,
+                    backgroundColor: 'rgba(10, 147, 150, 0.2)',
+                    fill: true,
+                    tension: 0.4
+                }, {
+                    label: '전통 산업 일자리 (변화 필요)',
+                    data: [500, 480, 450, 410, 360],
+                    borderColor: vibrantPalette.red2,
+                    backgroundColor: 'rgba(174, 32, 18, 0.2)',
+                    fill: true,
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '상대적 일자리 수',
+                            color: '#333'
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    },
+                    title: {
+                        display: false,
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false,
+                    }
+                }
+            }
+        });
+
+        document.getElementById('calculateCarbon').addEventListener('click', () => {
+            const busStops = parseFloat(document.getElementById('busStops').value) || 0;
+            const toothbrushCup = parseFloat(document.getElementById('toothbrushCup').value) || 0;
+            const leftoverLunch = document.getElementById('leftoverLunch').value;
+            const walkingDistance = parseFloat(document.getElementById('walkingDistance').value) || 0;
+            const disposableItems = parseFloat(document.getElementById('disposableItems').value) || 0;
+            const screenTime = parseFloat(document.getElementById('screenTime').value) || 0;
+            const showerTime = parseFloat(document.getElementById('showerTime').value) || 0;
+            const meatConsumptionCategory = document.getElementById('meatConsumptionCategory').value;
+            const vegetableConsumptionCategory = document.getElementById('vegetableConsumptionCategory').value;
+
+            let dailyCarbon = 0; // Daily carbon in kg CO2e
+
+            // Bus (daily, approx. 0.05 kg CO2e/stop)
+            dailyCarbon += (busStops * 0.05);
+
+            // Toothbrush cup (penalty for not using cup) - assume 0.03 kg CO2e penalty per brush if no cup
+            // If using a cup, a penalty of 0.005 is applied per brush for water usage/toothpaste production etc.
+            if (toothbrushCup === 0) dailyCarbon += (3 * 0.03); // Assuming 3 brushes/day if no cup used, increased penalty
+            else dailyCarbon += (toothbrushCup * 0.005); // Small carbon for using cup, increased slightly
+            
+            // Leftover lunch (daily)
+            if (leftoverLunch === 'yes') dailyCarbon += 0.5; // Increased impact
+            else if (leftoverLunch === 'often') dailyCarbon += 1.2; // Increased impact
+
+            // Walking (daily reduction)
+            dailyCarbon -= (walkingDistance * 0.15); // kg CO2e reduction per km, increased benefit
+
+            // Disposable items (daily)
+            dailyCarbon += (disposableItems * 0.2); // kg CO2e per item, increased impact
+
+            // Screen time (daily)
+            dailyCarbon += (screenTime * 0.05); // kg CO2e per hour, increased impact
+
+            // Shower time (daily, approx. 0.01 kg CO2e per minute of hot water)
+            dailyCarbon += (showerTime * 0.01);
+
+            // Meat consumption (daily impact)
+            if (meatConsumptionCategory === 'very_often') dailyCarbon += 2.0; 
+            else if (meatConsumptionCategory === 'often') dailyCarbon += 1.0; 
+            else if (meatConsumptionCategory === 'sometimes') dailyCarbon += 0.5; 
+            else if (meatConsumptionCategory === 'rarely') dailyCarbon += 0.1; 
+
+            // Vegetable consumption (daily impact, minor adjustment or reduction)
+            if (vegetableConsumptionCategory === 'daily') dailyCarbon -= 0.1; // Slight positive effect
+            else if (vegetableConsumptionCategory === 'rarely') dailyCarbon += 0.2; // Slight negative effect if very low
+
+
+            dailyCarbon = Math.round(dailyCarbon * 100) / 100; // Round to 2 decimal places
+
+            // Ensure carbon footprint is not negative
+            if (dailyCarbon < 0) dailyCarbon = 0;
+
+            document.getElementById('carbonValue').textContent = dailyCarbon;
+            
+            const carbonGuidanceDiv = document.getElementById('carbonGuidance');
+            if (dailyCarbon <= 1.0) { // Adjusted threshold
+                carbonGuidanceDiv.textContent = '아주 훌륭해요! 계속 잘 실천하고 있어요! 👍';
+            } else if (dailyCarbon <= 2.5) { // Adjusted threshold
+                carbonGuidanceDiv.textContent = '좋아요! 하지만 더 줄일 수 있어요. 일회용품 줄이기, 걷기 생활화를 시도해 보세요! 🚶‍♀️🛍️';
+            } else if (dailyCarbon <= 4.0) { // Adjusted threshold
+                carbonGuidanceDiv.textContent = '개선이 필요해요. 고기 줄이기, 샤워 시간을 더 짧게 해 보세요! 🍖💧';
+            } else { // > 4.0kg (Adjusted threshold)
+                carbonGuidanceDiv.textContent = '환경을 위해 전반적인 습관 개선이 시급합니다! 🌍💡';
+            }
+            document.getElementById('carbonResult').classList.remove('hidden');
+        });
+
+        const environmentalCareers = [
+            {
+                name: "재생에너지 기술자",
+                description: "태양광, 풍력 등 재생에너지 시스템을 설치, 유지보수하고 효율을 높이는 기술 전문가입니다.",
+                traits: ["문제해결_기술", "과학적탐구", "현실형", "과학", "수학", "기술_정보"],
+                holland: ["R", "I"], mbti: ["ISTP", "ESTP", "INTP"]
+            },
+            {
+                name: "환경 과학자/연구원",
+                description: "환경 문제를 연구하고, 오염 원인을 분석하며, 해결 전략을 개발하는 과학자입니다.",
+                traits: ["과학적탐구", "문제해결_기술", "자연_야외활동", "탐구형", "과학", "수학"],
+                holland: ["I", "R"], mbti: ["INTJ", "INTP", "ENTP"]
+            },
+            {
+                name: "생태 복원 전문가",
+                description: "훼손된 자연 생태계를 조사하고, 복원 계획을 수립하여 다시 건강하게 되돌리는 전문가입니다.",
+                traits: ["자연_야외활동", "과학적탐구", "현실형", "탐구형", "과학", "사회_역사"],
+                holland: ["I", "R", "A"], mbti: ["ISFP", "INFP", "ENFJ"]
+            },
+            {
+                name: "환경 교육 전문가",
+                description: "사람들에게 환경 문제의 심각성과 해결 방법을 알리고, 환경 보호 실천을 유도하는 교육자입니다.",
+                traits: ["사람소통_교육", "사회변화주도", "사회형", "국어_언어", "사회_역사"],
+                holland: ["S", "E"], mbti: ["ENFJ", "ESFJ", "INFJ"]
+            },
+            {
+                name: "환경 정책 분석가/입안자",
+                description: "기후 변화 및 환경 문제를 해결하기 위한 정책을 연구하고, 법률 및 제도를 만드는 데 기여합니다.",
+                traits: ["정책_법률", "체계적조직", "사회변화주도", "진취형", "관습형", "사회_역사", "국어_언어"],
+                holland: ["E", "C", "S"], mbti: ["ENTJ", "ISTJ", "ESTJ"]
+            },
+            {
+                name: "지속가능성 컨설턴트",
+                description: "기업이나 단체가 환경적으로 지속 가능한 방식으로 운영되도록 전략과 솔루션을 제공하는 전문가입니다.",
+                traits: ["체계적조직", "문제해결_기술", "사람소통_교육", "진취형", "탐구형", "사회_역사", "기술_정보"],
+                holland: ["E", "I", "S"], mbti: ["ENTJ", "ENFJ", "INTJ"]
+            },
+            {
+                name: "에코디자이너/그린제품 개발자",
+                description: "환경에 해롭지 않은 친환경 제품을 디자인하고 개발하며, 지속 가능한 소비를 이끌어냅니다.",
+                traits: ["디자인_창의", "문제해결_기술", "예술형", "현실형", "미술_음악", "기술_정보"],
+                holland: ["A", "R", "I"], mbti: ["INFP", "ISFP", "ENFP"]
+            },
+            {
+                name: "환경 에너지 공학자",
+                description: "에너지 효율을 높이고 오염 물질을 줄이는 공학 기술을 개발하고 적용하여 환경 문제를 해결합니다.",
+                traits: ["과학적탐구", "문제해결_기술", "현실형", "탐구형", "과학", "수학", "기술_정보"],
+                holland: ["I", "R"], mbti: ["INTP", "ISTP", "INTJ"]
+            },
+            {
+                name: "기후변화 예측 전문가",
+                description: "기후 데이터를 분석하고 예측 모델을 개발하여 미래 기후 변화에 대비하는 전략을 세웁니다.",
+                traits: ["과학적탐구", "문제해결_기술", "체계적조직", "탐구형", "과학", "수학", "기술_정보"],
+                holland: ["I", "C"], mbti: ["INTJ", "INTP", "ISTJ"]
+            },
+            {
+                name: "친환경 도시/건축 계획가",
+                description: "환경을 고려한 지속 가능한 도시와 건물을 설계하고, 에너지 효율적인 공간을 만듭니다.",
+                traits: ["디자인_창의", "체계적조직", "문제해결_기술", "현실형", "예술형", "기술_정보", "사회_역사"],
+                holland: ["A", "R", "C"], mbti: ["INFJ", "INTJ", "ENFJ"]
+            },
+            {
+                name: "환경 법률 전문가",
+                description: "환경 관련 법규 및 정책을 분석하고, 환경 분쟁 해결을 위한 법률 자문을 제공합니다.",
+                traits: ["정책_법률", "체계적조직", "사회변화주도", "관습형", "사회_역사", "국어_언어"],
+                holland: ["C", "E", "S"], mbti: ["ISTJ", "ESTJ", "INTJ"]
+            },
+            {
+                name: "재활용 및 자원 순환 전문가",
+                description: "폐기물을 효율적으로 재활용하고, 자원 순환 시스템을 구축하여 환경 부담을 줄입니다.",
+                traits: ["체계적조직", "문제해결_기술", "현실형", "과학", "기술_정보"],
+                holland: ["C", "R"], mbti: ["ISTJ", "INTP", "ESTJ"]
+            }
+        ];
+
+        document.getElementById('findMyJob').addEventListener('click', () => {
+            const selectedInterests = Array.from(document.querySelectorAll('input[name="interest"]:checked')).map(cb => cb.value);
+            const selectedSubjects = Array.from(document.querySelectorAll('input[name="subject"]:checked')).map(cb => cb.value);
+            
+            const selectedTraits = [...selectedInterests, ...selectedSubjects];
+
+            const scores = {};
+            environmentalCareers.forEach(career => {
+                scores[career.name] = 0;
+                selectedTraits.forEach(trait => {
+                    if (career.traits.includes(trait)) {
+                        scores[career.name]++;
+                    }
+                });
+            });
+
+            const sortedCareers = Object.entries(scores).sort(([, scoreA], [, scoreB]) => scoreB - scoreA);
+            const recommendedCareersDiv = document.getElementById('recommendedCareers');
+            recommendedCareersDiv.innerHTML = ''; // Clear previous results
+
+            let hasRecommendation = false;
+            // Get careers with a positive score, up to 3
+            const topCareers = sortedCareers.filter(item => item[1] > 0).slice(0, 3);
+
+            if (topCareers.length > 0) {
+                hasRecommendation = true;
+                topCareers.forEach(([careerName, score]) => {
+                    const career = environmentalCareers.find(c => c.name === careerName);
+                    if (career) {
+                        const careerCard = document.createElement('div');
+                        careerCard.className = 'bg-white p-4 rounded-lg shadow-md border border-[#0A9396]';
+                        careerCard.innerHTML = `
+                            <h4 class="text-xl font-bold text-[#005F73] mb-2">${career.name}</h4>
+                            <p class="text-gray-700 text-sm">${career.description}</p>
+                            <p class="text-gray-500 text-xs mt-2">
+                                <span class="font-bold">주요 관련 특성:</span> ${career.traits.filter(t => selectedTraits.includes(t)).map(t => {
+                                    if (t.includes("형")) return t; // Already has type
+                                    if (t.includes("과학적탐구")) return "과학적 탐구 (탐구형 R)";
+                                    if (t.includes("문제해결_기술")) return "기술 활용 문제 해결 (현실형 C / 탐구형 R)";
+                                    if (t.includes("자연_야외활동")) return "자연 보호, 야외 활동 (현실형 R / 탐구형 A)";
+                                    if (t.includes("사람소통_교육")) return "사람들과 소통, 교육 (사회형 S)";
+                                    if (t.includes("정책_법률")) return "정책 수립, 법률 분석 (진취형 E / 관습형 C)";
+                                    if (t.includes("디자인_창의")) return "예술, 디자인, 창의적 작업 (예술형 A)";
+                                    if (t.includes("체계적조직")) return "자료 정리, 계획 수립 (관습형 C / 진취형 E)";
+                                    if (t.includes("사회변화주도")) return "사회 변화 주도, 리더십 (진취형 E)";
+                                    return t; // Default for subjects
+                                }).join(', ')}
+                            </p>
+                            <p class="text-gray-500 text-xs mt-1">
+                                <span class="font-bold">주요 홀랜드 코드:</span> ${career.holland.join(', ')}
+                            </p>
+                            <p class="text-gray-500 text-xs mt-1">
+                                <span class="font-bold">추천 MBTI:</span> ${career.mbti.join(', ')}
+                            </p>
+                        `;
+                        recommendedCareersDiv.appendChild(careerCard);
+                    }
+                });
+            }
+
+            if (!hasRecommendation) {
+                recommendedCareersDiv.innerHTML = `
+                    <div class="col-span-full text-center text-gray-600">
+                        선택하신 항목과 일치하는 직업을 찾기 어렵네요. <br>더 다양한 항목을 선택하거나, 다른 조합으로 다시 시도해 보세요!
+                    </div>
+                `;
+            }
+            document.getElementById('careerResult').classList.remove('hidden');
+        });
+    </script>
+</body>
+</html>
